@@ -1,0 +1,87 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+.clock {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: 8px solid #d3e011;
+  border-radius: 50%;
+  background-color: #f9f9f9;
+  overflow: hidden; /* Ensure the image stays within the clock circle */
+}
+
+.clock img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintain aspect ratio and cover the entire area */
+}
+
+.hand {
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  background-color: #000;
+  transform-origin: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.hour {
+  width: 30%;
+  top: 50%;
+  left: 35%;
+  transform: translate(-50%, -100%) rotate(90deg);
+  background-color: white;
+}
+
+.minute {
+  width: 40%;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -100%) rotate(180deg);
+  background-color: white;
+}
+
+.second {
+  width: 48%;
+  top: 50%;
+  left: 26%;
+  transform: translate(-50%, -100%) rotate(270deg);
+  background-color: red;
+  z-index: 1; /* Ensure the second hand is above other hands */
+  border-radius: 2px; /* Give a slight rounded edge */
+}
+
+/* Center dot */
+.center-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background-color: #000;
+  border-radius: 50%;
+  z-index: 2; /* Ensure it's above other elements */
+  transform: translate(-50%, -50%);
+}
+
+.number {
+  position: absolute;
+  font-size: 14px; /* Increase font size */
+  color: #f4f5eb; /* Change color to white */
+}
+
+@media (max-width: 600px) {
+  .clock {
+    width: 80vw; /* Adjust the clock size based on viewport width */
+    max-width: 300px; /* Limit the maximum size of the clock */
+    height: auto;
+    padding-bottom: 80vw; /* Maintain aspect ratio */
+  }
+}
